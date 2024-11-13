@@ -2,6 +2,7 @@
   "version": "4",
   "specifiers": {
     "npm:daisyui@^4.12.14": "4.12.14",
+    "npm:moment@^2.30.1": "2.30.1",
     "npm:tailwindcss@^3.4.14": "3.4.14_postcss@8.4.47",
     "npm:typescript@~5.6.2": "5.6.3",
     "npm:vite@^5.4.10": "5.4.10"
@@ -476,6 +477,9 @@
     "minipass@7.1.2": {
       "integrity": "sha512-qOOzS1cBTWYF4BH8fVePDBOO9iptMnGUEZwNc/cMWnTV2nVLZ7VoNWEPHkYczZA0pdoA7dl6e7FL659nX9S2aw=="
     },
+    "moment@2.30.1": {
+      "integrity": "sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how=="
+    },
     "mz@2.7.0": {
       "integrity": "sha512-z81GNO7nnYMEhrGh9LeymoE4+Yr0Wn5McHIZMK5cfQCl+NDX08sCZgUc9/6MHni9IWuFLm1Z3HTCXu2z9fN62Q==",
       "dependencies": [
@@ -781,6 +785,7 @@
     "packageJson": {
       "dependencies": [
         "npm:daisyui@^4.12.14",
+        "npm:moment@^2.30.1",
         "npm:tailwindcss@^3.4.14",
         "npm:typescript@~5.6.2",
         "npm:vite@^5.4.10"
