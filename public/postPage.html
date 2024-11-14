@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html class="bg-white p-0 m-0 scroll-smooth" lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title></title>
+	<link rel="stylesheet" href="/css/main.css" />
+	<script type="module" src="../src/assets/typescript/postPage.ts" defer></script>
+</head>
+
+<body class="h-screen bg-white text-black flex flex-col">
+	<header class="py-4 bg-white w-full fixed top-0 z-50 border-b-2 border-b-redditOrange shadow-md grid grid-cols-12">
+		<div class="drawer">
+			<input id="my-drawer" type="checkbox" class="drawer-toggle" />
+			<div class="drawer-content flex justify-center">
+				<!-- Page content here -->
+				<label for="my-drawer" class="drawer-button text-center cursor-pointer h-fit py-2">
+					<img src="../src/assets/images/tools.png" alt="" height="40" width="40" />
+				</label>
+			</div>
+			<div class="drawer-side">
+				<label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+				<ul class="menu bg-white text-base-content min-h-full w-80 p-4">
+					<!-- Sidebar content here -->
+					<!-- collapsibles here -->
+				</ul>
+			</div>
+		</div>
+		<h1 class="text-5xl text-center col-start-2 col-end-12 self-center font-bold text-redditOrange drop-shadow-xl">
+			<a href="/" class="">readit</a>
+		</h1>
+		<div id="githubstars" class="flex justify-center items-center">
+			<a href="">Github</a>
+		</div>
+	</header>
+	<main class="h-full container">
+		<section class="container w-full rounded-md px-2 ml-11 mt-[104px]" id="pageContent">
+			<h2 class=" flex items-center px-7 mb-2 rounded-lg bg-gray-100 h-12">
+				<span class="text-2xl font-bold" id="subredditTitle">
+				</span>
+			</h2>
+		</section>
+	</main>
+
+</body>
+
+</html>

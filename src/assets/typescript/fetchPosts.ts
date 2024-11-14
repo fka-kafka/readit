@@ -16,6 +16,7 @@ interface Post {
   thumbnail_width?: number;
   thumbnail_height?: number;
   url: string;
+  permalink: string;
 }
 
 export async function fetchPosts(uri: string | URL, subreddit: string) {
@@ -40,7 +41,9 @@ export async function fetchPosts(uri: string | URL, subreddit: string) {
       thumbnail_height: subredditPost?.data?.thumbnail_height,
       thumbnail_width: subredditPost?.data?.thumbnail_width,
       url: subredditPost?.data?.url,
+      permalink: subredditPost?.data?.permalink,
     });
   }
+
   return posts;
 }

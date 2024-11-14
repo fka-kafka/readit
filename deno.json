@@ -5,10 +5,8 @@
     "indentWidth": 2,
     "semiColons": true,
     "singleQuote": true,
-    "proseWrap": "preserve",
-    "include": ["src/"],
-    "exclude": ["src/testdata/", "src/fixtures/**/*.ts"]
-  },
+    "proseWrap": "preserve"
+    },
   "lint": {
     "include": ["src/"],
     "rules": {
@@ -16,6 +14,6 @@
     }
   },
   "tasks": {
-    "style": "npx tailwindcss -i ./src/style.css -o ./src/assets/styles/output.css --watch"
+    "style": "npx tailwindcss -i ./src/assets/styles/style.css -o ./public/css/main.css --watch"
   }
 }
