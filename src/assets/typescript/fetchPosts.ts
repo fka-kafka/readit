@@ -10,7 +10,10 @@ interface Post {
 	created_utc: number;
 	media: {
 		type: string;
-		oembed: Record<string | number | symbol, never>;
+		oembed?: {
+			html?: string | null;
+			type?: string | null
+		};
 	};
 	thumbnail: string;
 	thumbnail_width?: number;
