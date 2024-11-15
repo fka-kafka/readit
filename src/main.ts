@@ -83,14 +83,14 @@ const debounceSearch = debounce(searchSubreddits, 500);
 
 document.addEventListener('DOMContentLoaded', () => {
 	document
-		.querySelector('input')!
-		.addEventListener('input', async (e: Event) => {
-			if (e.target!.value === null || e.target?.value === '') {
-				searchResultsContainer.innerHTML = '';
-				return;
-			} else {
-				const searchResults = await debounceSearch(e.target?.value);
-				displaySearchResults(searchResults!);
-			}
-		});
+  .querySelector('input')!
+  .addEventListener('input', async (e: Event) => {
+    if (e.target instanceof HTMLInputElement && (e.target.value === null || e.target.value === '')) {
+      searchResultsContainer.innerHTML = '';
+      return;
+    } else if (e.target instanceof HTMLInputElement) {
+      const searchResults = await debounceSearch((e.target as HTMLInputElement).value);
+      displaySearchResults(searchResults!);
+    }
+  });
 });
