@@ -1,19 +1,19 @@
 {
-  "fmt": {
-    "useTabs": true,
-    "lineWidth": 100,
-    "indentWidth": 2,
-    "semiColons": true,
-    "singleQuote": true,
-    "proseWrap": "preserve"
-    },
-  "lint": {
-    "include": ["src/"],
-    "rules": {
-      "exclude": ["no-unused-vars", "no-explicit-any", "no-explicit-any"]
-    }
-  },
-  "tasks": {
-    "style": "npx tailwindcss -i ./src/assets/styles/style.css -o ./public/css/main.css --watch"
-  }
+	"fmt": {
+		"useTabs": true,
+		"lineWidth": 100,
+		"indentWidth": 2,
+		"semiColons": true,
+		"singleQuote": true,
+		"proseWrap": "preserve"
+	},
+	"lint": {
+		"include": ["src/"],
+		"rules": {
+			"exclude": ["no-unused-vars", "no-explicit-any", "no-explicit-any"]
+		}
+	},
+	"tasks": {
+		"style": "npx tailwindcss -i ./src/assets/styles/style.css -o ./public/css/main.css --watch"
+	}
 }

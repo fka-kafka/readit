@@ -1,32 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="" />
+		<link rel="stylesheet" href="/css/main.css">
+		<script type="module" src="/src/main.ts" defer></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Readit</title>
+	</head>
 
-<head>
-	<meta charset="UTF-8" />
-	<link rel="icon" type="image/svg+xml" href="" />
-	<link rel="stylesheet" href="/css/main.css">
-	<script type="module" src="/src/main.ts" defer></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Readit</title>
-</head>
-
-<body class="h-screen bg-white">
-	<main class=" container grid grid-rows-2 justify-center items-center h-full text-black ">
-		<section class=" leading-loose text-redditOrange w-full h-full flex flex-col items-center justify-end">
-			<h1 class="drop-shadow-xl text-center text-9xl font-bold	mb-1">/readit</h1>
-			<p class="font-medium text-xl mt-1 text-center"> Read and interact with posts from all your favorite
-				<span class=" max-w-fit">r/<input type="text" placeholder="subreddits"
-						class="input bg-transparent p-0 text-xl m-0 focus:outline-none shadow-none max-w-max w-full outline-redditOrange drop-shadow-lg"
-						autofocus />
-				</span>
-			</p>
-		</section>
-		<section class="flex items-center  w-full pt-4 flex-col h-full">
-			<div class=" overflow-y-scroll snap-y w-1/2 h-4/6 flex flex-col" id="searchResults">
-			</div>
-		</section>
-	</main>
-	
-</body>
-
+	<body class="h-screen bg-white">
+		<main class="container grid grid-rows-2 justify-center items-center h-full text-black">
+			<section class="leading-loose w-full h-full flex flex-col items-center justify-end">
+				<h1 class="drop-shadow-xl text-center text-9xl font-bold text-redditOrange mb-1">
+					/readit
+				</h1>
+				<p class="font-medium text-xl mt-1 text-center text-redditOrange">
+					Read and interact with posts from all your favorite
+					<span class="max-w-fit">r/<input
+							type="text"
+							placeholder="subreddits"
+							class="input bg-transparent p-0 text-xl px-[2px] text-redditOrange focus:border-redditOrange focus:outline-none focus:border-2 shadow-none max-w-max w-full border-redditOrange drop-shadow-lg"
+							autofocus
+						/>
+					</span>
+				</p>
+			</section>
+			<section class="flex items-center w-full pt-4 flex-col h-full">
+				<div
+					class="overflow-y-scroll snap-y w-1/2 h-4/6 flex flex-col scroll-smooth"
+					id="searchResults"
+				>
+				</div>
+			</section>
+		</main>
+	</body>
 </html>
