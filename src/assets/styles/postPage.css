@@ -1,0 +1,77 @@
+.collapsible {
+    transition: 0.15s;
+}
+
+.collapsible:after {
+    content: "\002B";
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.content {
+    transition: max-height 0.2s ease-out;
+}
+
+.github-button {
+    max-width: fit-content;
+}
+
+.neon-box {
+    box-shadow:
+        0 0 2px #FF3446,
+        0 0 2px #FF3446,
+        0 0 2px #FF3446,
+        0 0 2px #FF3446,
+        0 0 2px #FF3446;
+    animation: glow 2s infinite alternate;
+}
+
+.neon-text {
+    color: #4c1d95;
+    animation: textglow 2s infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow:
+            0 0 2px #FF3446,
+            0 0 2px #FF3446,
+            0 0 2px #FF3446,
+            0 0 2px #FF3446,
+            0 0 2px #FF3446;
+    }
+    50% {
+        box-shadow:
+            0 0 2px #3AE4DE,
+            0 0 2px #3AE4DE,
+            0 0 2px #3AE4DE,
+            0 0 2px #3AE4DE,
+            0 0 2px #3AE4DE;
+    }
+    100% {
+        box-shadow:
+            0 0 2px #FFDC00,
+            0 0 2px #FFDC00,
+            0 0 2px #FFDC00,
+            0 0 2px #FFDC00,
+            0 0 2px #FFDC00;
+    }
+}
+
+@keyframes textglow {
+    0% {
+        color: #FF3446;  /* Orange */
+    }
+    50% {
+        color: #3AE4DE;  /* Purple */
+    }
+    100% {
+        color: #FFDC00;  /* Blue */
+    }
+}

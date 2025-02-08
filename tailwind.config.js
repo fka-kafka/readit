@@ -1,12 +1,21 @@
-/** @type {import('tailwindcss').Config} */
+import daisyui from 'daisyui'
 export default {
-	content: ['./src/**/**/*.{js,ts}', './index.html', './public/*.html'],
+	content: ['./src/**/**/*.{js,ts}', './index.html', './src/**/**/*.html'],
+	darkMode: 'class',
 	theme: {
 		extend: {
 			colors: {
 				redditOrange: '#ff4400',
 			},
+			fontFamily: {
+			 lato: ['"Lato"', 'sans-serif'],
+			 allura: ['"Allura"', 'serif'],
+			 montserrat: ['"Montserrat"', 'serif']
+			}
 		},
 	},
-	plugins: [require('daisyui')],
+	plugins: [daisyui],
+	daisyui: {
+    style: false
+  }
 };

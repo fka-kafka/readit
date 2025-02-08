@@ -6,6 +6,23 @@ import {
 import { displayPosts } from "./displayPosts.ts";
 import "../styles/style.css";
 
+const themeChanger = document.getElementById(
+  "themeChanger",
+) as HTMLButtonElement;
+themeChanger.addEventListener("click", (e: Event) => {
+  e.preventDefault();
+
+  const themeIcon = document.getElementById("themeIcon") as HTMLImageElement;
+
+  if (document.documentElement.classList.contains("dark")) {
+    themeIcon.src = "../assets/images/crescent.svg";
+  } else {
+    themeIcon.src = "../assets/images/light-mode.svg";
+  }
+
+  document.documentElement.classList.toggle("dark");
+});
+
 document.addEventListener("DOMContentLoaded", async (e) => {
   e.preventDefault();
   const urlParams = new URLSearchParams(globalThis.location.search);
@@ -19,7 +36,6 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 
   document.addEventListener("click", async (e: Event) => {
     const target = e.target as Node;
-
     // Check if the target is an Element
     if (target.nodeType !== Node.ELEMENT_NODE) {
       return;
@@ -27,27 +43,30 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 
     // Cast target to Element
     const favoriteButton = (target as Element).closest(
-      "#favoriteButton"
+      "#favoriteButton",
     ) as HTMLButtonElement;
-
     // Check if favoriteButton is found
     if (!favoriteButton) {
       return;
     }
-
-    const favoriteIcon = favoriteButton.firstElementChild as HTMLImageElement;
+    console.log(favoriteButton);
+    const favoriteIcon = favoriteButton.firstElementChild as SVGElement;
+    console.log(favoriteIcon);
     const subject =
       favoriteButton.parentElement?.firstElementChild?.textContent;
 
+    console.log(subject);
+
     if (localStorage.getItem("favorites")) {
       const favorites = await JSON.parse(localStorage.getItem("favorites")!);
+      const path = favoriteIcon.children[0]!;
       favorites.includes(subject!)
-        ? ((favoriteIcon.src = "./src/assets/images/favorite.svg"),
+        ? (path.setAttribute("fill", "none"),
           deleteFromLocalStorage("favorites", subject!))
-        : ((favoriteIcon.src = "./src/assets/images/favorite-filled.svg"),
+        : (path.setAttribute("fill", "#2563eb"),
           saveToLocalStorage("favorites", subject!));
     } else {
-      favoriteIcon.src = "./src/assets/images/favorite-filled.svg";
+      favoriteIcon.querySelector("path")?.setAttribute("fill", "none");
       saveToLocalStorage("favorites", subject!);
     }
   });
@@ -83,14 +102,14 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 
     if (localStorage.getItem(category.toLocaleLowerCase()) !== null) {
       const savedItemsContainer = document.getElementById(
-        category.toLocaleLowerCase()
+        category.toLocaleLowerCase(),
       ) as HTMLUListElement;
 
       // Clear the saved items container
       savedItemsContainer.innerHTML = "";
 
       const savedItems = JSON.parse(
-        localStorage.getItem(category.toLocaleLowerCase())!
+        localStorage.getItem(category.toLocaleLowerCase())!,
       ) as Recents;
 
       savedItems.forEach((savedItem) => {
@@ -99,7 +118,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
           "w-full",
           "overflow-x-hidden",
           "py-2",
-          "text-black"
+          "text-black",
         );
         subredditItem.innerHTML =
           category === "Recents"

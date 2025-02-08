@@ -1,0 +1,167 @@
+<!doctype html>
+<html class="bg-white p-0 m-0 scroll-smooth dark:bg-[#090e10]" lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title></title>
+        <link rel="stylesheet" href="/css/main.css" />
+        <link rel="stylesheet" href="../assets/styles/postPage.css" />
+        <script
+            type="module"
+            src="../assets/typescript/postPage.ts"
+            defer
+        ></script>
+    </head>
+
+    <body
+        class="min-h-screen font-montserrat text-black dark:text-white bg-[#e6e6e6] dark:bg-[#090e10] flex flex-col"
+    >
+        <header
+            class="py-2 bg-[#f2f2f2] dark:bg-[#090e10] w-full fixed top-0 z-50 shadow-sm grid grid-cols-12"
+        >
+            <div class="drawer ">
+                <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+                <div class="drawer-content flex justify-center">
+                    <!-- Page content here -->
+                    <label
+                        for="my-drawer"
+                        class="drawer-button text-center cursor-pointer h-fit py-2 hover:scale-110 delay-[50] transition-transform"
+                    >
+                        <img
+                            src="../assets/images/tools.png"
+                            alt=""
+                            height="40"
+                            width="40"
+                        />
+                    </label>
+                </div>
+                <div class="drawer-side min-h-full">
+                    <label
+                        for="my-drawer"
+                        aria-label="close sidebar"
+                        class="drawer-overlay"
+                    ></label>
+                    <ul
+                        class="menu bg-[#e6e6e6] dark:bg-[#090e10] text-base-content min-h-[92%] w-80 p-4"
+                    >
+                        <!-- collapsibles here -->
+                        <div class="collapse !rounded-md">
+                          <input type="checkbox" />
+                          <div class="collapse-title"><span class="text-sm text-[#0B1215] dark:text-[#d9d9d9] font-semibold">Recents</span></div>
+                          <div class="collapse-content ">
+                            <div class="bg-red-300 !min-h-40 !max-h-40 flex flex-col overflow-scroll">
+                                <span>Hello</span>
+                                <span>Hello</span>
+                                <span>Hello</span>
+                                <span>Hello</span>
+                                <span>Hello</span>
+                                <span>Hello</span>
+                                <span>Hello</span>
+                                <span>Hello</span>
+                                <span>Hello</span>
+                                <span>Hello</span>
+                                <span>Hello</span>
+                                <span>Hello</span>
+                                <span>Hello</span>
+                                <span>Hello</span>
+                                <span>Hello</span>
+                                <span>Hello</span>
+                                <span>Hello</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="collapse !rounded-md !p-0">
+                          <input type="checkbox" />
+                          <div class="collapse-title"><span class="text-sm text-[#0B1215] dark:text-[#d9d9d9] font-semibold">Favorites</span></div>
+                          <div class="collapse-content">
+                            <div class="bg-red-300 !min-h-40 !max-h-40">hello</div>
+                          </div>
+                        </div>
+
+                    </ul>
+                    <footer
+                        class="bg-[#ebebeb] dark:bg-[#0f171a]  h-[8%] border border-t-[#d4d7de] dark:border-none w-80 self-end"
+                    >
+                        <div class="h-full flex justify-between items-center w-full px-4">
+                            <a
+                                target="_blank"
+                                href="https://github.com/fka-kafka"
+                                class="hover:scale-110 cursor-pointer delay-100 transition-all"
+                            >
+                                <img
+                                    src="../assets/images/github.svg"
+                                    height="28"
+                                    width="28"
+                                    class="mx-2 p-[2px] bg-black rounded-full border border-white"
+                                />
+                            </a>
+                            <span
+                                class="mx-2 text-black dark:text-[#d9d9d9] font-allura text-2xl"
+                                >crafted by kafka</span
+                            >
+                        </div>
+                    </footer>
+                </div>
+            </div>
+            <h1
+                class="text-5xl text-center col-start-2 col-end-12 self-center font-bold text-black dark:text-white"
+            >
+                <a href="/" class="hover:text-[#5195DD] ">readit</a>
+            </h1>
+            <div
+                id="githubstars"
+                class="flex justify-center items-center w-fit"
+            >
+                <div
+                    class="neon-box max-w-fit max-h-fit rounded-sm bg-transparent py-[2px] px-1 hover:scale-110 delay-[50] transition-transform"
+                >
+                    <a
+                        class="flex justify-center items-center cursor-pointer"
+                        href="https://github.com/fka-kafka/readit"
+                        target="_blank"
+                    >
+                        <img
+                            class="bg-slate-950 rounded-full mr-1 border border-black"
+                            src="../assets/images/github.svg"
+                            width="16"
+                            height="16"
+                        />
+                        <span
+                            class="neon-text text-[12px] leading-[14px] text-black dark:text-white font-bold"
+                            >Star</span
+                        >
+                    </a>
+                </div>
+            </div>
+        </header>
+        <main class="h-full container">
+            <section
+                class="container w-full rounded-md px-2 ml-11 mt-[86px]"
+                id="pageContent"
+            >
+                <h2
+                    class="flex items-center justify-between px-7 mb-2 rounded-lg bg-[#f2f2f2] dark:bg-[#121d21] border border-gray-100 dark:border-none h-12 shadow-sm"
+                >
+                    <span
+                        class="text-2xl font-bold text-black dark:text-white"
+                        id="subredditTitle"
+                    >
+                    </span>
+                    <div class="">
+                        <button
+                            class="bg-[#f2f2f2] dark:bg-transparent w-fit my-2 rounded-full hover:scale-110 delay-[50] transition-transform"
+                            id="themeChanger"
+                        >
+                            <img
+                                src="../assets/images/crescent.svg"
+                                height="20"
+                                width="20"
+                                id="themeIcon"
+                            />
+                        </button>
+                    </div>
+                </h2>
+            </section>
+        </main>
+    </body>
+</html>

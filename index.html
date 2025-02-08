@@ -1,38 +1,84 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<link rel="icon" type="image/svg+xml" href="" />
-		<link rel="stylesheet" href="/css/main.css">
-		<script type="module" src="/src/main.ts" defer></script>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Readit</title>
-	</head>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="" />
+        <link rel="stylesheet" href="/css/main.css" />
+        <script type="module" src="/src/main.ts" defer></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Readit</title>
+    </head>
 
-	<body class="h-screen bg-white">
-		<main class="container grid grid-rows-2 justify-center items-center h-full text-black">
-			<section class="leading-loose w-full h-full flex flex-col items-center justify-end">
-				<h1 class="drop-shadow-xl text-center text-9xl font-bold text-redditOrange mb-1">
-					/readit
-				</h1>
-				<p class="font-medium text-xl mt-1 text-center text-redditOrange">
-					Read and interact with posts from all your favorite
-					<span class="max-w-fit">r/<input
-							type="text"
-							placeholder="subreddits"
-							class="input bg-transparent p-0 text-xl px-[2px] text-redditOrange focus:border-redditOrange focus:outline-none focus:border-2 shadow-none max-w-max w-full border-redditOrange drop-shadow-lg"
-							autofocus
-						/>
-					</span>
-				</p>
-			</section>
-			<section class="flex items-center w-full pt-4 flex-col h-full">
-				<div
-					class="overflow-y-scroll snap-y w-1/2 h-4/6 flex flex-col scroll-smooth"
-					id="searchResults"
-				>
-				</div>
-			</section>
-		</main>
-	</body>
+    <body class="h-screen bg-[#e6e6e6] dark:bg-[#090e10] font-lato">
+        <header class="flex justify-end items-center h-[8%]">
+            <div class="">
+                <button
+                    class="bg-[#e6e6e6] dark:bg-transparent w-fit m-4 rounded-full hover:scale-110"
+                    id="themeChanger"
+                >
+                    <img
+                        src="/src/assets/images/crescent.svg"
+                        height="20"
+                        width="20"
+                        id="themeIcon"
+                    />
+                </button>
+            </div>
+        </header>
+        <main
+            class="container grid grid-rows-2 justify-center items-center h-[84%] backdrop-blur-md"
+        >
+            <section
+                class="leading-loose w-full h-full flex flex-col items-center justify-end"
+            >
+                <h1
+                    class="drop-shadow-sm text-center text-8xl font-semibold font-montserrat text-[#0B1215] dark:text-[#d9d9d9] mb-1"
+                >
+                    readit
+                </h1>
+                <p
+                    class="font-semibold font-montserrat text-xl text-center text-[#0B1215] dark:text-[#d9d9d9]"
+                >
+                    Read and interact with posts from all your favorite
+                    Subreddits.
+                    <br />
+                    <span class=""
+                        ><input
+                            type="text"
+                            class="input px-2 my-3 bg-[#f2f2f2] dark:bg-[#121d21] font-medium shadow-md text-[#0B1215] dark:text-[#d9d9d9] text-center text-lg backdrop-blur-md outline-transparent focus:shadow-md focus:outline-none dark:focus:outline-none"
+                            autofocus
+                        />
+                    </span>
+                </p>
+            </section>
+            <section class="flex items-center w-full pt-4 flex-col h-full">
+                <div
+                    class="overflow-y-scroll snap-y w-full h-7/8 flex flex-col scroll-smooth px-8 bg-transparent"
+                    id="searchResults"
+                ></div>
+            </section>
+        </main>
+        <footer
+            class="bg-[#ebebeb] dark:bg-[#0f171a]  h-[8%] border border-t-[#d4d7de] dark:border-none"
+        >
+            <div class="h-full flex justify-between items-center w-full px-4">
+                <a
+                    target="_blank"
+                    href="https://github.com/fka-kafka"
+                    class="hover:scale-110 cursor-pointer delay-100 transition-all"
+                >
+                    <img
+                        src="./src/assets/images/github.svg"
+                        height="28"
+                        width="28"
+                        class="mx-2 p-[2px] bg-black rounded-full border border-white"
+                    />
+                </a>
+                <span
+                    class="mx-2 text-black dark:text-[#d9d9d9] font-allura text-2xl"
+                    >crafted by kafka</span
+                >
+            </div>
+        </footer>
+    </body>
 </html>

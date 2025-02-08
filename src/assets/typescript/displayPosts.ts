@@ -15,11 +15,13 @@ export async function displayPosts(subreddit: string) {
 
   if (localStorage.getItem("favorites") !== null) {
     favoritePosts = await JSON.parse(localStorage.getItem("favorites")!);
+    console.log(favoritePosts);
   }
 
   postData.forEach((post) => {
     const postContainer = document.createElement("article") as HTMLElement;
-    postContainer.className = "p-2 my-4 rounded-lg bg-gray-100 px-5";
+    postContainer.className =
+      "p-2 my-4 rounded-lg bg-[#f2f2f2] dark:bg-[#121d21] shadow-md px-5 border border-gray-100 dark:border-none";
     postContainer.id = "post";
 
     const flairBackgroundColor = post.link_flair_background_color;
@@ -43,21 +45,19 @@ export async function displayPosts(subreddit: string) {
 
     postContainer.innerHTML = `
 			<div class="flex flex-col w-full">
-				<span class="w-fit self-end px-2 rounded-xl text-sm font-medium mt-2" style="background-color: ${flairBackgroundColor}">
+				<span class="w-fit self-end px-2 rounded-xl text-sm font-semibold mt-2" style="background-color: ${flairBackgroundColor};">
 					${post.link_flair_text !== null ? post.link_flair_text : ""}
 				</span>
-        <span class=" w-full grid grid-cols-12  px-2">
+        <span class=" w-full grid grid-cols-12 px-2 ">
           <a href="${redditBaseurl}${
-      post.permalink
-    }" target="_blank" class="font-semibold text-xl my-2 hover:text-redditOrange col-span-11 w-fit" id="postTitle">${
-      post.title
-    }</a>
-          <button id="favoriteButton" class=" flex justify-end my-2">
-            <img class=" hover:scale-110" src="${
-              favoritePosts.includes(post.title)
-                ? "./src/assets/images/favorite-filled.svg"
-                : "./src/assets/images/favorite.svg"
-            }" alt="" width="24" id="favorite">
+            post.permalink
+          }" target="_blank" class="font-semibold text-xl my-2 hover:text-[#5195DD] col-span-11 w-fit" id="postTitle">${
+            post.title
+          }</a>
+          <button id="favoriteButton" class=" flex justify-end my-2 rounded-full">
+            <svg id="favoriteIcon" class="w-6 h-6 hover:scale-110 stroke-2 stroke-[#2563eb] delay-[50] transition-transform" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.381 6.06759C18.1553 3.19885 13.7697 3.5573 12 6.62866C10.2303 3.55729 5.84473 3.19885 3.61898 6.06759L3.30962 6.46632C1.42724 8.8925 1.69903 12.3524 3.93717 14.4548L10.9074 21.0026C11.0115 21.1005 11.1254 21.2075 11.2327 21.2902C11.3562 21.3853 11.5288 21.4954 11.7593 21.5406C11.9182 21.5718 12.0818 21.5718 12.2407 21.5406C12.4712 21.4954 12.6438 21.3853 12.7673 21.2902C12.8747 21.2075 12.9885 21.1005 13.0927 21.0026L20.0628 14.4548C22.301 12.3524 22.5728 8.89249 20.6904 6.46631L20.381 6.06759Z" fill="${favoritePosts && favoritePosts.includes(post.title) ? '#2563eb' : 'none'}"/>
+            </svg>
           </button>
         </span>
 			</div>
@@ -87,7 +87,7 @@ export async function displayPosts(subreddit: string) {
             </div>
           </div>
           </div>
-					<p class=" my-2 ">
+					<p class=" my-2 leading-5">
 						${
               post.selftext.length <= 1000
                 ? post.selftext
@@ -99,23 +99,25 @@ export async function displayPosts(subreddit: string) {
 					<div class="max-w-fit inline-grid grid-cols-3">
 						<div class="flex justify-center items-center pr-2 font-semibold text-sm">
               <a href="${redditBaseurl}${post.permalink}" target="_blank">
-                <img class=" hover:scale-110" src="./src/assets/images/upvote.svg" alt="" width="32">
+                <img class=" hover:scale-110" src="../assets/images/upvote.svg" alt="" width="32">
               </a>
                 ${post.ups + post.downs}
               <a href="${redditBaseurl}${post.permalink}" target="_blank">
-                <img class=" hover:scale-110 rotate-180" src="./src/assets/images/downvote.svg" alt="" width="32">
+                <img class=" hover:scale-110 rotate-180" src="../assets/images/downvote.svg" alt="" width="32">
               </a>
 						</div>
 						<span class=" w-fit mx-2 flex gap-0.5 text-sm font-semibold justify-center items-center">
-              ${post.num_comments}   
+              ${post.num_comments}
               <a href="${redditBaseurl}${post.permalink}" target="_blank">
-                <img src="./src/assets/images/comment.svg" alt="" width="22" class=" pt-1 hover:scale-110">
+                <svg fill="#000000" class="w-5 h-5 fill-black dark:fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 2H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h3v3.767L13.277 18H20c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm0 14h-7.277L9 18.233V16H4V4h16v12z"/><path d="M7 7h10v2H7zm0 4h7v2H7z"/>
+                </svg>
               </a>
             </span>
 					</div>
 					<span class=" text-sm"><b>u/${post.author}</b> <b>|</b> ${moment
-      .unix(post.created_utc)
-      .fromNow()}</span>
+            .unix(post.created_utc)
+            .fromNow()}</span>
 				</div>
 			</div>
                     `;

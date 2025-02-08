@@ -10,7 +10,7 @@
 	"lint": {
 		"include": ["src/"],
 		"rules": {
-			"exclude": ["no-unused-vars", "no-explicit-any", "no-explicit-any"]
+			"exclude": ["no-unused-vars", "no-explicit-any"]
 		}
 	},
 	"tasks": {
