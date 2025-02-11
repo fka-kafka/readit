@@ -1,4 +1,4 @@
-import moment from "moment";
+import { DateTime } from "https://esm.sh/luxon";
 
 import { fetchPosts } from "./fetchPosts.ts";
 import { RecentsOrFavorites } from "./localStorage.ts"
@@ -116,9 +116,7 @@ export async function displayPosts(subreddit: string) {
               </a>
             </span>
 					</div>
-					<span class=" text-sm"><b>u/${post.author}</b> <b>|</b> ${moment
-            .unix(post.created_utc)
-            .fromNow()}</span>
+					<span class=" text-sm"><b>u/${post.author}</b> <b>|</b> ${DateTime.fromSeconds(post.created_utc).toRelative()}</span>
 				</div>
 			</div>
                     `;

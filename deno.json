@@ -14,7 +14,13 @@
 		}
 	},
 	"tasks": {
-		"style": "npx tailwindcss -i ./src/assets/styles/style.css -o ./public/css/main.css --watch",
-		"build": "tsc && vite build"
-	}
+    "style": "deno run -A https://esm.sh/tailwindcss -i ./src/assets/styles/style.css -o ./public/css/main.css --watch",
+    "build": "deno run -A npm:vite build",
+    "preview": "deno run -A npm:vite preview"
+  },
+ "imports": {
+    "tailwindcss": "https://esm.sh/tailwindcss",
+    "vite": "npm:vite"
+
+  }
 }

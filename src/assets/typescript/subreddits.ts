@@ -63,7 +63,6 @@ export function displaySearchResults(searchResults: Subreddit[]) {
   searchResultsContainer.innerHTML = "";
   searchResults.forEach((searchResult) => {
     const result = document.createElement("a") as HTMLAnchorElement;
-    result.target = "_blank";
     result.className = "w-full flex justify-center font-montserrat";
     result.id = "searchResult";
     result.innerHTML = `
