@@ -70,7 +70,7 @@ export function displaySearchResults(searchResults: Subreddit[]) {
             <span class=" ml-4 text-md font-semibold ">${searchResult.display_name_prefixed}</span>
         </div>
 			`;
-    result.href = `/src/pages/postPage.html?subreddit=${searchResult.display_name}`;
+    result.href = `/readit/src/pages/postPage.html?subreddit=${searchResult.display_name}`;
 
     searchResultsContainer.appendChild(result);
   });
