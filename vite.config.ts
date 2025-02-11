@@ -1,7 +1,7 @@
 import { defineConfig } from "npm:vite";
 
 export default defineConfig({
-  base: '/',
+  base: '/readit/',
   build: {
     rollupOptions: {
       input: {
