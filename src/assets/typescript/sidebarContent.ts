@@ -31,7 +31,7 @@ export async function displaySidebarContent(content: string) {
       "delay-[25]",
       "transition-transform",
     );
-    contentAnchor.href = content.toLowerCase() === 'recents' ? `/src/pages/postPage.html?subreddit=${contentSaved}` : contentSaved;
+    contentAnchor.href = content.toLowerCase() === 'recents' ? `/readit/src/pages/postPage.html?subreddit=${contentSaved}` : contentSaved;
     contentAnchor.target = "_blank";
     contentAnchor.textContent = content.toLowerCase() === 'recents' ? contentSaved : contentSaved.split('/')[contentSaved.split('/').length - 2];
 
