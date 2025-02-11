@@ -2,6 +2,8 @@ import moment from "moment";
 
 import { fetchPosts } from "./fetchPosts.ts";
 import { RecentsOrFavorites } from "./localStorage.ts"
+import upvoteIcon from "/src/assets/images/upvote.svg"
+import downvoteIcon from "/src/assets/images/downvote.svg"
 
 const redditBaseurl = "https://www.reddit.com";
 const postsSection = document.getElementById("pageContent") as HTMLElement;
@@ -15,7 +17,6 @@ export async function displayPosts(subreddit: string) {
 
   if (localStorage.getItem("favorites") !== null) {
     favoritePosts = await JSON.parse(localStorage.getItem("favorites")!);
-    console.log(favoritePosts);
   }
 
   postData.forEach((post) => {
@@ -45,7 +46,7 @@ export async function displayPosts(subreddit: string) {
 
     postContainer.innerHTML = `
 			<div class="flex flex-col w-full">
-				<span class="w-fit self-end px-2 rounded-xl text-sm font-semibold mt-2 dark:text-black" style="background-color: ${flairBackgroundColor};">
+				<span class="w-fit self-end px-2 rounded-xl text-white text-sm font-semibold mt-2 dark:text-black" style="background-color: ${flairBackgroundColor};">
 					${post.link_flair_text !== null ? post.link_flair_text : ""}
 				</span>
         <span class=" w-full grid grid-cols-12 px-2">
@@ -56,7 +57,7 @@ export async function displayPosts(subreddit: string) {
           }</a>
           <button id="favoriteButton" class=" flex justify-end my-2 rounded-full">
             <svg id="favoriteIcon" class="w-6 h-6 hover:scale-110 stroke-2 stroke-[#2563eb] delay-[50] transition-transform" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20.381 6.06759C18.1553 3.19885 13.7697 3.5573 12 6.62866C10.2303 3.55729 5.84473 3.19885 3.61898 6.06759L3.30962 6.46632C1.42724 8.8925 1.69903 12.3524 3.93717 14.4548L10.9074 21.0026C11.0115 21.1005 11.1254 21.2075 11.2327 21.2902C11.3562 21.3853 11.5288 21.4954 11.7593 21.5406C11.9182 21.5718 12.0818 21.5718 12.2407 21.5406C12.4712 21.4954 12.6438 21.3853 12.7673 21.2902C12.8747 21.2075 12.9885 21.1005 13.0927 21.0026L20.0628 14.4548C22.301 12.3524 22.5728 8.89249 20.6904 6.46631L20.381 6.06759Z" fill="${favoritePosts.includes(post.url) ? "#2563eb" : "none"}"/>
+            <path d="M20.381 6.06759C18.1553 3.19885 13.7697 3.5573 12 6.62866C10.2303 3.55729 5.84473 3.19885 3.61898 6.06759L3.30962 6.46632C1.42724 8.8925 1.69903 12.3524 3.93717 14.4548L10.9074 21.0026C11.0115 21.1005 11.1254 21.2075 11.2327 21.2902C11.3562 21.3853 11.5288 21.4954 11.7593 21.5406C11.9182 21.5718 12.0818 21.5718 12.2407 21.5406C12.4712 21.4954 12.6438 21.3853 12.7673 21.2902C12.8747 21.2075 12.9885 21.1005 13.0927 21.0026L20.0628 14.4548C22.301 12.3524 22.5728 8.89249 20.6904 6.46631L20.381 6.06759Z" fill="${favoritePosts && favoritePosts.includes(post.url) ? "#2563eb" : "none"}"/>
             </svg>
           </button>
         </span>
@@ -99,11 +100,11 @@ export async function displayPosts(subreddit: string) {
 					<div class="max-w-fit inline-grid grid-cols-3">
 						<div class="flex justify-center items-center pr-2 font-semibold text-sm">
               <a href="${redditBaseurl}${post.permalink}" target="_blank">
-                <img class=" hover:scale-110" src="../assets/images/upvote.svg" alt="" width="32">
+                <img class=" hover:scale-110" src="${upvoteIcon}" alt="" width="32">
               </a>
                 ${post.ups + post.downs}
               <a href="${redditBaseurl}${post.permalink}" target="_blank">
-                <img class=" hover:scale-110 rotate-180" src="../assets/images/downvote.svg" alt="" width="32">
+                <img class=" hover:scale-110 rotate-180" src="${downvoteIcon}" alt="" width="32">
               </a>
 						</div>
 						<span class=" w-fit mx-2 flex gap-0.5 text-sm font-semibold justify-center items-center">

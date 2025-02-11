@@ -1,10 +1,12 @@
 // deno-lint-ignore-file no-explicit-any
-import "./assets/styles/style.css";
 import {
   debounce,
   searchSubreddits,
   displaySearchResults,
 } from "./assets/typescript/subreddits";
+import lightModeIcon from '/src/assets/images/light-mode.svg'
+import crescentIcon from '/src/assets/images/crescent.svg'
+import "./assets/styles/style.css";
 
 
 const themeChanger = document.getElementById(
@@ -16,9 +18,9 @@ themeChanger.addEventListener("click", (e: Event) => {
   const themeIcon = document.getElementById("themeIcon") as HTMLImageElement;
 
   if (document.documentElement.classList.contains("dark")) {
-    themeIcon.src = "/src/assets/images/crescent.svg";
+    themeIcon.src = crescentIcon;
   } else {
-    themeIcon.src = "/src/assets/images/light-mode.svg";
+    themeIcon.src = lightModeIcon;
   }
 
   document.documentElement.classList.toggle("dark");

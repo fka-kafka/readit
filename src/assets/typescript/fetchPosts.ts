@@ -57,7 +57,6 @@ export function fetchFromLocalStorage(category: string) {
 
   if (localStorage.getItem(category) !== null) {
     savedItems = JSON.parse(localStorage.getItem(category)!)
-    console.log(savedItems, typeof savedItems)
     return savedItems
   }
 

@@ -1902,6 +1902,14 @@ html:has(.drawer-toggle:checked){
   height: 100vh;
 }
 
+.h-4{
+  height: 1rem;
+}
+
+.h-7{
+  height: 1.75rem;
+}
+
 .\!max-h-40{
   max-height: 10rem !important;
 }
@@ -1953,6 +1961,14 @@ html:has(.drawer-toggle:checked){
   width: 100%;
 }
 
+.w-4{
+  width: 1rem;
+}
+
+.w-7{
+  width: 1.75rem;
+}
+
 .min-w-full{
   min-width: 100%;
 }
@@ -1960,6 +1976,10 @@ html:has(.drawer-toggle:checked){
 .max-w-fit{
   max-width: -moz-fit-content;
   max-width: fit-content;
+}
+
+.max-w-full{
+  max-width: 100%;
 }
 
 .rotate-180{
@@ -2316,6 +2336,11 @@ html:has(.drawer-toggle:checked){
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
+.text-white{
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 .shadow-md{
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
@@ -2538,16 +2563,8 @@ html:has(.drawer-toggle:checked){
   fill: #fff;
 }
 
-.dark\:stroke-white:is(.dark *){
-  stroke: #fff;
-}
-
 .dark\:stroke-\[\#d9d9d9\]:is(.dark *){
   stroke: #d9d9d9;
-}
-
-.dark\:stroke-\[white\]:is(.dark *){
-  stroke: white;
 }
 
 .dark\:text-\[\#d9d9d9\]:is(.dark *){

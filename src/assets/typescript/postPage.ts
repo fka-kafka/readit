@@ -5,6 +5,8 @@ import {
 } from "./localStorage.ts";
 import { displayPosts } from "./displayPosts.ts";
 import { displaySidebarContent } from "./sidebarContent.ts";
+import lightModeIcon from '/src/assets/images/light-mode.svg'
+import crescentIcon from '/src/assets/images/crescent.svg'
 import "../styles/style.css";
 
 const themeChanger = document.getElementById(
@@ -16,9 +18,9 @@ themeChanger.addEventListener("click", (e: Event) => {
   const themeIcon = document.getElementById("themeIcon") as HTMLImageElement;
 
   if (document.documentElement.classList.contains("dark")) {
-    themeIcon.src = "../assets/images/crescent.svg";
+    themeIcon.src = crescentIcon;
   } else {
-    themeIcon.src = "../assets/images/light-mode.svg";
+    themeIcon.src = lightModeIcon;
   }
 
   document.documentElement.classList.toggle("dark");
@@ -72,15 +74,11 @@ document.addEventListener("DOMContentLoaded", async (e) => {
     if (!favoriteButton) {
       return;
     }
-    console.log(favoriteButton);
     const favoriteIcon = favoriteButton.firstElementChild as SVGElement;
-    console.log(favoriteIcon);
     const subjectElement = favoriteButton.parentElement
       ?.firstElementChild as HTMLAnchorElement;
 
     const subject = subjectElement.href;
-
-    console.log(subject);
 
     if (localStorage.getItem("favorites")) {
       const favorites = await JSON.parse(localStorage.getItem("favorites")!);
@@ -108,7 +106,6 @@ document.addEventListener("DOMContentLoaded", async (e) => {
     }
 
     const category = savedDataButton.textContent!;
-    console.log(category);
 
     if (localStorage.getItem(category.toLocaleLowerCase()) !== null) {
       const savedItemsContainer = document.getElementById(
