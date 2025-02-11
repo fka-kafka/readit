@@ -1,3 +1,5 @@
+import { RecentsOrFavorites } from "./localStorage.ts"
+
 interface Post {
 	selftext: string;
 	title: string;
@@ -48,4 +50,16 @@ export async function fetchPosts(uri: string | URL, subreddit: string) {
 	}
 
 	return posts;
+}
+
+export function fetchFromLocalStorage(category: string) {
+  let savedItems: RecentsOrFavorites;
+
+  if (localStorage.getItem(category) !== null) {
+    savedItems = JSON.parse(localStorage.getItem(category)!)
+    console.log(savedItems, typeof savedItems)
+    return savedItems
+  }
+
+  return null
 }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="bg-white p-0 m-0 scroll-smooth dark:bg-[#090e10]" lang="en">
+<html class="bg-white p-0 m-0 scroll-smooth dark:bg-[#090e10] dark" lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,19 +7,19 @@
         <link rel="stylesheet" href="/css/main.css" />
         <link rel="stylesheet" href="../assets/styles/postPage.css" />
         <script
+            defer
             type="module"
             src="../assets/typescript/postPage.ts"
-            defer
         ></script>
     </head>
 
     <body
-        class="min-h-screen font-montserrat text-black dark:text-white bg-[#e6e6e6] dark:bg-[#090e10] flex flex-col"
+        class="min-h-screen min-width-full font-montserrat text-black bg-[#e6e6e6] dark:bg-[#090e10] flex flex-col"
     >
         <header
-            class="py-2 bg-[#f2f2f2] dark:bg-[#090e10] w-full fixed top-0 z-50 shadow-sm grid grid-cols-12"
+            class="body py-2 bg-[#f2f2f2] dark:bg-[#090e10] w-full fixed top-0 z-50 shadow-sm grid grid-cols-12"
         >
-            <div class="drawer ">
+            <div class="drawer">
                 <input id="my-drawer" type="checkbox" class="drawer-toggle" />
                 <div class="drawer-content flex justify-center">
                     <!-- Page content here -->
@@ -46,43 +46,46 @@
                     >
                         <!-- collapsibles here -->
                         <div class="collapse !rounded-md">
-                          <input type="checkbox" />
-                          <div class="collapse-title"><span class="text-sm text-[#0B1215] dark:text-[#d9d9d9] font-semibold">Recents</span></div>
-                          <div class="collapse-content ">
-                            <div class="bg-red-300 !min-h-40 !max-h-40 flex flex-col overflow-scroll">
-                                <span>Hello</span>
-                                <span>Hello</span>
-                                <span>Hello</span>
-                                <span>Hello</span>
-                                <span>Hello</span>
-                                <span>Hello</span>
-                                <span>Hello</span>
-                                <span>Hello</span>
-                                <span>Hello</span>
-                                <span>Hello</span>
-                                <span>Hello</span>
-                                <span>Hello</span>
-                                <span>Hello</span>
-                                <span>Hello</span>
-                                <span>Hello</span>
-                                <span>Hello</span>
-                                <span>Hello</span>
+                            <input id="recentsToggle" type="checkbox" />
+                            <div
+                                class="collapse-title shadow-md rounded-md my-1 dark:border dark:border-gray-500"
+                            >
+                                <span
+                                    class="text-sm text-[#0B1215] dark:text-[#d9d9d9] font-semibold"
+                                    >Recents</span
+                                >
                             </div>
-                          </div>
+                            <div class="collapse-content">
+                                <div
+                                    id="recents"
+                                    class="!min-h-40 !max-h-40 flex flex-col overflow-scroll"
+                                ></div>
+                            </div>
                         </div>
                         <div class="collapse !rounded-md !p-0">
-                          <input type="checkbox" />
-                          <div class="collapse-title"><span class="text-sm text-[#0B1215] dark:text-[#d9d9d9] font-semibold">Favorites</span></div>
-                          <div class="collapse-content">
-                            <div class="bg-red-300 !min-h-40 !max-h-40">hello</div>
-                          </div>
+                            <input id="favoritesToggle" type="checkbox" />
+                            <div
+                                class="collapse-title shadow-md rounded-md my-1 dark:border dark:border-gray-500"
+                            >
+                                <span
+                                    class="text-sm text-[#0B1215] dark:text-[#d9d9d9] font-semibold"
+                                    >Favorites</span
+                                >
+                            </div>
+                            <div class="collapse-content">
+                                <div
+                                    id="favorites"
+                                    class="!min-h-40 !max-h-40 flex flex-col overflow-scroll"
+                                ></div>
+                            </div>
                         </div>
-
                     </ul>
                     <footer
-                        class="bg-[#ebebeb] dark:bg-[#0f171a]  h-[8%] border border-t-[#d4d7de] dark:border-none w-80 self-end"
+                        class="bg-[#ebebeb] dark:bg-[#0f171a] h-[8%] border border-t-[#d4d7de] dark:border-none w-80 self-end"
                     >
-                        <div class="h-full flex justify-between items-center w-full px-4">
+                        <div
+                            class="h-full flex justify-between items-center w-full px-4"
+                        >
                             <a
                                 target="_blank"
                                 href="https://github.com/fka-kafka"
@@ -104,16 +107,24 @@
                 </div>
             </div>
             <h1
-                class="text-5xl text-center col-start-2 col-end-12 self-center font-bold text-black dark:text-white"
+                class="w-full flex col-start-2 col-end-12 justify-center items-center"
             >
-                <a href="/" class="hover:text-[#5195DD] ">readit</a>
+                <span
+                    class="w-fit h-fit hover:scale-105 delay-[50] transition-transform"
+                    ><a
+                        href="/"
+                        class="text-5xl text-center font-bold text-black dark:text-white hover:text-[#5195DD] dark:hover:text-[#5195DD]"
+                        style=""
+                        >readit</a
+                    ></span
+                >
             </h1>
             <div
                 id="githubstars"
                 class="flex justify-center items-center w-fit"
             >
                 <div
-                    class="neon-box max-w-fit max-h-fit rounded-sm bg-transparent py-[2px] px-1 hover:scale-110 delay-[50] transition-transform"
+                    class="neon-box max-w-fit delay-[50] max-h-fit rounded-sm bg-transparent py-[2px] px-1 hover:scale-110 transition-transform"
                 >
                     <a
                         class="flex justify-center items-center cursor-pointer"
@@ -134,11 +145,8 @@
                 </div>
             </div>
         </header>
-        <main class="h-full container">
-            <section
-                class="container w-full rounded-md px-2 ml-11 mt-[86px]"
-                id="pageContent"
-            >
+        <main class="h-full container min-w-full">
+            <section class="w-full rounded-md px-10 mt-[86px]" id="pageContent">
                 <h2
                     class="flex items-center justify-between px-7 mb-2 rounded-lg bg-[#f2f2f2] dark:bg-[#121d21] border border-gray-100 dark:border-none h-12 shadow-sm"
                 >
@@ -153,14 +161,69 @@
                             id="themeChanger"
                         >
                             <img
-                                src="../assets/images/crescent.svg"
-                                height="20"
-                                width="20"
+                                src="../assets/images/light-mode.svg"
+                                height="24"
+                                width="24"
                                 id="themeIcon"
                             />
                         </button>
                     </div>
                 </h2>
+                <div
+                    id="loader-container"
+                    class="my-4 flex w-full h-full justify-center items-center hidden"
+                >
+                    <svg
+                        version="1.1"
+                        id="loader"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px"
+                        y="0px"
+                        viewBox="0 0 100 100"
+                        enable-background="new 0 0 100 100"
+                        xml:space="preserve"
+                        width="72"
+                        height="72"
+                        class=""
+                    >
+                        <circle
+                            class="planet dark:stroke-[#d9d9d9]"
+                            fill="#2563eb"
+                            stroke="#000000"
+                            stroke-width="4"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-miterlimit="10"
+                            cx="49.6"
+                            cy="50"
+                            r="27.5"
+                        />
+                        <path
+                            class="orbit dark:stroke-[#d9d9d9]"
+                            fill="none"
+                            stroke="#000000"
+                            stroke-width="4"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-miterlimit="10"
+                            d="
+	M10.9,27.4c-4.5,7.9,9.3,24.3,30.9,36.8s42.8,16.2,47.4,8.4c2-3.4,0.5-8.4-3.6-14"
+                        />
+                        <circle
+                            class="satellite dark:stroke-[#d9d9d9]"
+                            fill="#CCCCCC"
+                            stroke="#000000"
+                            stroke-width="4"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-miterlimit="10"
+                            cx="22.6"
+                            cy="18.2"
+                            r="5.4"
+                        />
+                    </svg>
+                </div>
             </section>
         </main>
     </body>

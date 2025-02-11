@@ -1,9 +1,10 @@
 import {
   deleteFromLocalStorage,
-  Recents,
+  RecentsOrFavorites,
   saveToLocalStorage,
-} from "./recentsAndFavorites.ts";
+} from "./localStorage.ts";
 import { displayPosts } from "./displayPosts.ts";
+import { displaySidebarContent } from "./sidebarContent.ts";
 import "../styles/style.css";
 
 const themeChanger = document.getElementById(
@@ -25,14 +26,36 @@ themeChanger.addEventListener("click", (e: Event) => {
 
 document.addEventListener("DOMContentLoaded", async (e) => {
   e.preventDefault();
+
   const urlParams = new URLSearchParams(globalThis.location.search);
   const subreddit = urlParams.get("subreddit");
 
   document.title = `r/${subreddit}`;
   document.getElementById("subredditTitle")!.innerText = `r/${subreddit}`;
 
-  await saveToLocalStorage("recents", subreddit!);
+  saveToLocalStorage("recents", subreddit!);
+
+  const recentsToggle = document.getElementById(
+    "recentsToggle",
+  ) as HTMLInputElement;
+  recentsToggle.addEventListener("input", (_e: Event) => {
+    if (recentsToggle.checked) {
+      displaySidebarContent("recents");
+    }
+  });
+
+  const favoritesTogle = document.getElementById(
+    "favoritesToggle",
+  ) as HTMLInputElement;
+  favoritesTogle.addEventListener("input", (_e: Event) => {
+    if (favoritesTogle.checked) {
+      displaySidebarContent("favorites");
+    }
+  });
+
+  document.getElementById("loader-container")?.classList.remove("hidden");
   await displayPosts(subreddit!);
+  document.getElementById("loader-container")?.classList.add("hidden");
 
   document.addEventListener("click", async (e: Event) => {
     const target = e.target as Node;
@@ -52,8 +75,10 @@ document.addEventListener("DOMContentLoaded", async (e) => {
     console.log(favoriteButton);
     const favoriteIcon = favoriteButton.firstElementChild as SVGElement;
     console.log(favoriteIcon);
-    const subject =
-      favoriteButton.parentElement?.firstElementChild?.textContent;
+    const subjectElement = favoriteButton.parentElement
+      ?.firstElementChild as HTMLAnchorElement;
+
+    const subject = subjectElement.href;
 
     console.log(subject);
 
@@ -70,21 +95,6 @@ document.addEventListener("DOMContentLoaded", async (e) => {
       saveToLocalStorage("favorites", subject!);
     }
   });
-
-  const collapsibles = document.getElementsByClassName("collapsible");
-
-  for (let i = 0; i < collapsibles.length; i++) {
-    collapsibles[i].addEventListener("click", (event) => {
-      const target = event.currentTarget as HTMLElement; // Type assertion
-      target.classList.toggle("active");
-      const content = target.nextElementSibling as HTMLElement; // Type assertion
-      if (content.style.maxHeight) {
-        content.style.maxHeight = "0";
-      } else {
-        content.style.maxHeight = content.scrollHeight + "px";
-      }
-    });
-  }
 
   document.addEventListener("click", (e: Event) => {
     const target = e.target as HTMLElement; // Cast to HTMLElement
@@ -110,7 +120,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 
       const savedItems = JSON.parse(
         localStorage.getItem(category.toLocaleLowerCase())!,
-      ) as Recents;
+      ) as RecentsOrFavorites;
 
       savedItems.forEach((savedItem) => {
         const subredditItem = document.createElement("li") as HTMLLIElement;

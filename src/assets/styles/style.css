@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 #searchResults::-webkit-scrollbar {
     display: none;
@@ -13,4 +13,35 @@
 #searchResults {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+}
+
+.paused * {
+  animation-play-state: paused !important;
+}
+
+.planet {
+  animation: pulse 1s infinite;
+}
+
+.orbit {
+  animation: pulseOrbit 1s infinite;
+}
+
+.satellite {
+  animation: pulseSatellite 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes pulseOrbit {
+  0%, 100% { stroke-width: 3; }
+  50% { stroke-width: 4; }
+}
+
+@keyframes pulseSatellite {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(0.8); }
 }

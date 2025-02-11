@@ -1,14 +1,14 @@
-export type Recents = string[];
+export type RecentsOrFavorites = string[];
 
-export async function saveToLocalStorage(category: string, item: string) {
+export function saveToLocalStorage(category: string, item: string) {
 	if (localStorage.getItem(category) === null) {
-		const savedItems: Recents = [];
+		const savedItems: RecentsOrFavorites = [];
 		savedItems.push(category === 'favorites' ? item : item.toLowerCase());
 		localStorage.setItem(category, JSON.stringify(savedItems));
 		return;
 	}
 
-	const savedItems: Recents = await JSON.parse(localStorage.getItem(category)!);
+	const savedItems: RecentsOrFavorites = JSON.parse(localStorage.getItem(category)!);
 
 	if (savedItems.includes(item.toLowerCase())) return;
 
@@ -17,10 +17,10 @@ export async function saveToLocalStorage(category: string, item: string) {
 	return;
 }
 
-export async function deleteFromLocalStorage(category: string, item: string) {
+export function deleteFromLocalStorage(category: string, item: string) {
 	if (localStorage.getItem(category) === null) return;
 
-	let savedItems: Recents = await JSON.parse(localStorage.getItem(category)!);
+	let savedItems: RecentsOrFavorites = JSON.parse(localStorage.getItem(category)!);
 
 	if (savedItems.includes(item) === false) return;
 

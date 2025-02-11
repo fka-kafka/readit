@@ -22,6 +22,19 @@
     max-width: fit-content;
 }
 
+#recents::-webkit-scrollbar, #favorites::-webkit-scrollbar {
+    display: none;
+}
+
+#recents, #favorites {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.collapse-title:hover {
+    color: #5195DD;
+}
+
 .neon-box {
     box-shadow:
         0 0 2px #FF3446,
@@ -74,4 +87,35 @@
     100% {
         color: #FFDC00;  /* Blue */
     }
+}
+
+.paused * {
+  animation-play-state: paused !important;
+}
+
+.planet {
+  animation: pulse 1s infinite;
+}
+
+.orbit {
+  animation: pulseOrbit 1s infinite;
+}
+
+.satellite {
+  animation: pulseSatellite 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes pulseOrbit {
+    0%, 100% { stroke-width: 4; }
+    50% { stroke-width: 6;
+}
+
+@keyframes pulseSatellite {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(0.8); }
 }
