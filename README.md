@@ -13,7 +13,7 @@ Visit [fka-kafka.github.io/readit](https://fka-kafka.github.io/readit)
 - Reddit JSON API
 
 ## Project Status
-Currently deployed and functional(a few minor tweaks notwithstanding). Local development instructions coming soon.
+Currently deployed and functional (a few minor tweaks notwithstanding). Local development instructions coming soon.
 
 ## About
 This project was built as part of the [roadmap.sh](https://roadmap.sh) Frontend Path challenges, focusing on API integration, state management, and responsive design.
